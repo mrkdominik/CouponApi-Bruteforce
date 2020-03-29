@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coupon checker - have your coupon won ? lets check it</title>
+
+    <meta name="viewport" content="width=device-width">
+    <meta name="keywords" content="API,Frontend,Backend,Win,Lottery,Coupons,Javascript,Bootstrap,DOM,coupons,name">
+    <meta name="description" content="Frontend + Backend .Net core app as a free solution for testing bruteforce technique on coupons">
+    <meta name="author" content="Dominik Mrkos">
+
+    <meta property="og:site_name" content="Coupon checker" />
+    <meta property="og:title" content="Coupon checker - have your coupon won ? lets check it" />
+    <meta property="og:description" content="Frontend + Backend .Net core app as a free solution of testing bruteforce technique" />
+    <meta property="og:image" content="http://94.177.253.28/pics/lotery.jpg" />
+
+    <link rel="stylesheet" href="css/site.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="icon"
+          type="image/png"
+          href="http://94.177.253.28/pics/favicon.ico">
+</head>
+
+<body onload="myFunction()">
+
+    <div class="row no-gutters">
+
+        <div class="col bg-black">
+        </div>
+
+        <div class="col-sm-6 col-12">
+            <img src="pics/lotery.jpg" alt="lottery" class="img-responsive" width="100%" />
+
+            <h1>Have your coupon won ?</h1>
+            <br />
+            <h2>Add</h2>
+            <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+                <input type="text" id="add-name" placeholder="Your name" class="form-control" required>
+                <input type="number" id="add-code" placeholder="Coupon code (4 digits)" class="form-control" required>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-sm">
+
+                    <div id="editForm" class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Edit</h2>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                        </div>
+
+                        <div class="modal-body">
+                            <form action="javascript:void(0);" onsubmit="updateItem()" class="table">
+                                <input type="hidden" id="edit-id">
+                                <input type="text" id="edit-name" class="form-control" placeholder="Your name">
+                                <input type="text" id="edit-code" class="form-control" placeholder="Coupon code (4 digits)">
+                                <!--<input type="submit" id="edit-save" class="btn btn-primary" value="Save">-->
+                                <button type="submit" id="edit-save" class="btn btn-primary">Save</button>
+
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p id="counter"></p>
+
+            <div id="loader"></div>
+            <div id="myDiv" class="animate-bottom">
+
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Coupon Code</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tbody id="Coupons"></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="col bg-black">
+        </div>
+    </div>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+
+</body>
+</html>
