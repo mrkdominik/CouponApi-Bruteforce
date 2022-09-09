@@ -20,8 +20,8 @@ jobs:
       with:
         dotnet-version: '3.1.x'
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore D:/a/CouponApi-Bruteforce/CouponApi-Bruteforce/CouponApi/CouponApi.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build D:/a/CouponApi-Bruteforce/CouponApi-Bruteforce/CouponApi/CouponApi.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test D:/a/CouponApi-Bruteforce/CouponApi-Bruteforce/CouponApi/CouponApi.sln --no-build --verbosity normal
